@@ -14,7 +14,7 @@ public:
 	void procesarEventos();
 	void procesarColisiones();
 	void procesarTiempo();
-
+	void checkWin();
 private:
 
 	//variables de ventana
