@@ -126,10 +126,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Afichmation.cpp" />
     <ClCompile Include="juego.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Afichmation.h" />
     <ClInclude Include="juego.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
