@@ -1,6 +1,6 @@
 #include "mario.h"
 #include <stdlib.h>
-
+//340 es el floor
 mario::mario()
 {
 	//sprite y textura de mario
@@ -16,9 +16,9 @@ mario::mario()
 	//reproduzco la animacion idle
 	spriteMario->Play("idle");
 	//seteo la escala del sprite con setScale
-	spriteMario->setScale(Vector2f(1.f, 1.f));
+	spriteMario->setScale(Vector2f(0.5f, 0.5f));
 	//ubicamos al personaje
-	spriteMario->move(500, 300);
+	spriteMario->move(500, 340);
 
 }
 

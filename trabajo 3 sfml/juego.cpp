@@ -14,11 +14,14 @@ juego::juego(int ancho, int alto, std::string titulo)
 	background = new Texture;
 	spriteBackground = new Sprite;
 	//cargamos el fondo en la textura y la asignamos al sprite
-	background->loadFromFile("/recursos/imagenes/fondo_plataformas.png");
+	background->loadFromFile("recursos/imagenes/fondo_plataformas.png");
 	spriteBackground->setTexture(*background);
 	//ajustamos al tamaño de ventana y escalamos el fondo
 	spriteBackground->setScale((float)(ventana1->getSize().x) / background->getSize().x, (float)(ventana1->getSize().y) / background->getSize().y);
 
+	//iniciamos a mario
+	Mario = new mario;
+	
 	//inicializamos el reloj
 
 	reloj1 = new Clock;
@@ -30,10 +33,25 @@ juego::juego(int ancho, int alto, std::string titulo)
 	//ajustes de HUD
 
 	font = new Font;
-	font->loadFromFile("assets/fuentes/fontnes.otf");
+	font->loadFromFile("recursos/fuentes/fontnes.otf");
 	stringTimerText = new Text();
-	
+	stringTimerText->setFont(*font);
+	stringTimerText->setPosition(400, 1);
 
+	stringGameOverText = new Text();
+	stringGameOverText->setFont(*font);
+	stringGameOverText->setString("Time's up, GAME OVER!");
+	stringGameOverText->setFillColor(sf::Color::Red);
+	stringGameOverText->setPosition((float)(ventana1->getSize().x / 3), (float)(ventana1->getSize().y / 2));
+
+	stringGameWinText = new Text();
+	stringGameWinText->setFont(*font);
+	stringGameWinText->setString("Ganaste!");
+	stringGameWinText->setFillColor(sf::Color::Green);
+	stringGameWinText->setPosition((float)(ventana1->getSize().x / 3), (float)(ventana1->getSize().y / 2));
+
+	evento1 = new Event;
+	gameLoop();
 }
 
 void juego::gameLoop() {
@@ -43,14 +61,38 @@ void juego::gameLoop() {
 		if (tiempo1->asSeconds() > 1 / fps && !gameOver && !win) {
 			procesarColisiones();
 			procesarEventos();
-			mario->update;
+			Mario->update();
 			dibujar();
 			procesarTiempo();
 			checkWin();
 		}
 		if (gameOver) {
 			ventana1->clear();
-			ventana1->draw(getMario());
+			ventana1->draw(Mario->getMario());
 		}
 	}
+}
+
+void juego::procesarColisiones() {
+
+}
+
+void juego::procesarEventos() {
+
+}
+
+void juego::dibujar() {
+	ventana1->clear();
+	ventana1->draw(*spriteBackground);
+	ventana1->draw(Mario->getMario());
+	ventana1->draw(*stringTimerText);
+	ventana1->display();
+}
+
+void juego::procesarTiempo() {
+
+}
+
+void juego::checkWin() {
+
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "SFML\Graphics.hpp"
 #include <iostream>
+#include "mario.h"
 
 using namespace sf;
 using namespace std;
@@ -25,7 +26,7 @@ private:
 
 	//variables de mario
 	Event * evento1;
-	Texture * mario;
+	mario *  Mario;
 	bool enPiso = true;
 
 	//variable de juego (mundo)
