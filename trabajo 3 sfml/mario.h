@@ -10,7 +10,8 @@ class mario {
 
 public: 
 	mario();
-	void update();
+	void update();//para updatear a mario
+	Afichmation getMario(); //para obtener sprite de mario
 
 private:
 	//variables de mario

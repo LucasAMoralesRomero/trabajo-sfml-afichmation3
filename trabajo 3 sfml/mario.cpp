@@ -27,3 +27,8 @@ void mario::update()//updateamos a mario
 	spriteMario->Update();
 }
 
+Afichmation mario::getMario()
+{
+	return *spriteMario;
+}
+

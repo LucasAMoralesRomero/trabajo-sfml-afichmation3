@@ -1,4 +1,5 @@
 #include "juego.h"
+#include "mario.h"
 #include <stdlib.h>
 
 juego::juego(int ancho, int alto, std::string titulo)
@@ -39,9 +40,17 @@ void juego::gameLoop() {
 	while (ventana1->isOpen()) {
 		*tiempo1 = reloj1->getElapsedTime();
 		//explicacion del if si tiempo1 es mayor que 1/fps y no es gameover y no es condicion de ganar haz esto
-		if (tiempo1->asSeconds() > 1 / fps && !gameOver && !win) 
-			{
-				
-			}
+		if (tiempo1->asSeconds() > 1 / fps && !gameOver && !win) {
+			procesarColisiones();
+			procesarEventos();
+			mario->update;
+			dibujar();
+			procesarTiempo();
+			checkWin();
+		}
+		if (gameOver) {
+			ventana1->clear();
+			ventana1->draw(getMario());
+		}
 	}
 }
