@@ -79,7 +79,18 @@ void juego::procesarColisiones() {
 }
 
 void juego::procesarEventos() {
-
+	while (ventana1->pollEvent(*evento1))
+	{
+		switch (evento1->type)
+		{
+		case Event::Closed:
+			ventana1->close();
+			exit(1);
+			break;
+		default:
+			break;
+		}
+	}
 }
 
 void juego::dibujar() {
