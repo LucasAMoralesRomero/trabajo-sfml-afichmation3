@@ -11,6 +11,12 @@ class mario {
 public: 
 	mario();
 	void update();//para updatear a mario
+	//para mover a mario
+	void runLeft();//correr a la izquierda
+	void runRight();//correr a la derecha
+	void jump(int floor);//saltar a proximo piso le pasamos el numero de piso
+	void stayIdle();//dejamos a mario en idle
+
 	Afichmation getMario(); //para obtener sprite de mario
 
 private:

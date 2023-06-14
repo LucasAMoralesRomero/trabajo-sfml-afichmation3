@@ -87,6 +87,15 @@ void juego::procesarEventos() {
 			ventana1->close();
 			exit(1);
 			break;
+		case Event::KeyPressed:
+			if (Keyboard::isKeyPressed(Keyboard::Left))//movemos a la izquierda con Mario->runLeft()
+			{
+				Mario->runLeft();
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Right))//movemos a la derecha con Mario->runRight()
+			{
+				Mario->runRight();
+			}
 		default:
 			break;
 		}

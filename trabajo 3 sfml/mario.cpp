@@ -32,3 +32,36 @@ Afichmation mario::getMario()
 	return *spriteMario;
 }
 
+void mario::runLeft() {
+	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamnete
+	{
+		velocidadActual = velocidadMaxima;
+	}
+	spriteMario->Play("run");
+	spriteMario->FlipX(false);
+	spriteMario->setPosition(spriteMario->getPosition().x - velocidadActual, spriteMario->getPosition().y);
+	//para definir los floors funcion que manda a consola la posicion de mario
+	cout << "movimiento a izquierda";
+	cout << "mario x ";
+	cout << spriteMario->getPosition().x;
+	cout << "mario y ";
+	cout << spriteMario->getPosition().y << endl;
+}
+
+void mario::runRight() {
+	velocidadActual = velocidadActual + aceleracion;
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamnete
+	{
+		velocidadActual = velocidadMaxima;
+	}
+	spriteMario->Play("run");
+	spriteMario->FlipX(true);
+	spriteMario->setPosition(spriteMario->getPosition().x + velocidadActual, spriteMario->getPosition().y);
+	//para definir los floors funcion que manda a consola la posicion de mario
+	cout << "movimiento a derecha";
+	cout << "mario x ";
+	cout << spriteMario->getPosition().x;
+	cout << "mario y ";
+	cout << spriteMario->getPosition().y << endl;
+}
