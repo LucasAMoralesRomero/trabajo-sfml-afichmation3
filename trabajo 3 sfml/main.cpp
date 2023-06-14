@@ -8,6 +8,6 @@ int main(int argc, char * args[])
 {
 	srand(time(NULL));
 	juego * partida1;
-	partida1 = new juego(640, 480, "Juego de mario");
+	partida1 = new juego(640, 480, "Juego de mario 2");
 	return 0;
 }

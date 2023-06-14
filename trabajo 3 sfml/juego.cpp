@@ -36,6 +36,7 @@ juego::juego(int ancho, int alto, std::string titulo)
 	font->loadFromFile("recursos/fuentes/fontnes.otf");
 	stringTimerText = new Text();
 	stringTimerText->setFont(*font);
+	stringTimerText->setFillColor(sf::Color::White);
 	stringTimerText->setPosition(400, 1);
 
 	stringGameOverText = new Text();
@@ -90,7 +91,13 @@ void juego::dibujar() {
 }
 
 void juego::procesarTiempo() {
-
+	tiempoFin = reloj1->getElapsedTime().asSeconds();
+	int seconds = ((int)(tiempoInicio - tiempoFin));
+	stringTimerText->setString("Tiempo: " + (std::to_string(seconds)));
+	if (seconds == -1 || seconds < -2)//se busca ver que el tiempo no sea cero para disparar el gameover
+	{
+		gameOver = true;
+	}
 }
 
 void juego::checkWin() {
