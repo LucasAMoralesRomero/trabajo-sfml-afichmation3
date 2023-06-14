@@ -30,4 +30,6 @@ private:
 	float aceleracion = 0.1f;
 	float velocidadMaxima = 6.0f;
 	float velocidadActual = 0.0f;
+	int floor;//definimos el piso de mario
+	const float gravity = 0.5f;
 };

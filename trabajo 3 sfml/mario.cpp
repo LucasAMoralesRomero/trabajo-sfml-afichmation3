@@ -65,3 +65,23 @@ void mario::runRight() {
 	cout << "mario y ";
 	cout << spriteMario->getPosition().y << endl;
 }
+
+void mario::jump(int numeroPiso) {
+	/*se define la implemetacion del salto pero permanecera comentada
+	mientras este en desarrollo el array de pisos*/
+	
+	/*
+	if (spriteMario->getPosition().y == floor) // salto de mario
+	{
+		if (en_piso)
+		{
+			spriteMario->Play("jump");
+			spriteMario->setPosition(spriteMario->getPosition().x, spriteMario->getPosition().y - 80);
+			jumpVelocity += gravity;
+			jumpVelocity = -10.f; // reiniciar la velocidad de salto
+			en_piso = false;//desactivamos bandera del piso
+			activar_idle = false;//desactivamos bandera de idle
+		}
+	}
+	*/
+}
