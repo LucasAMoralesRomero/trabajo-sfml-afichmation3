@@ -96,6 +96,15 @@ void juego::procesarEventos() {
 			{
 				Mario->runRight();
 			}
+			//codigo de prueba para determinar el piso de la actividad  posiciona e imprime en consola posicion
+			else if (Keyboard::isKeyPressed(Keyboard::Up))
+			{
+				Mario->testUp();
+			}
+			else if (Keyboard::isKeyPressed(Keyboard::Down))
+			{
+				Mario->testDown();
+			}
 		default:
 			break;
 		}

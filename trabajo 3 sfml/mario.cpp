@@ -1,6 +1,6 @@
 #include "mario.h"
 #include <stdlib.h>
-//340 es el floor
+//395 es el floor
 mario::mario()
 {
 	//sprite y textura de mario
@@ -17,8 +17,8 @@ mario::mario()
 	spriteMario->Play("idle");
 	//seteo la escala del sprite con setScale
 	spriteMario->setScale(Vector2f(0.5f, 0.5f));
-	//ubicamos al personaje
-	spriteMario->move(500, 340);
+	//ubicamos al personaje en piso 0 en el medio
+	spriteMario->move(330.0f,1.0f);
 
 }
 
@@ -70,6 +70,8 @@ void mario::jump(int numeroPiso) {
 	/*se define la implemetacion del salto pero permanecera comentada
 	mientras este en desarrollo el array de pisos*/
 	
+	cout << "Jump" << endl;
+
 	/*
 	if (spriteMario->getPosition().y == floor) // salto de mario
 	{
@@ -84,4 +86,24 @@ void mario::jump(int numeroPiso) {
 		}
 	}
 	*/
+}
+
+//variables de test para desarrollo de juego
+
+void mario::testUp() {
+	spriteMario->setPosition(spriteMario->getPosition().x, spriteMario->getPosition().y - 1);
+	cout << "movimiento arriba";
+	cout << "mario x ";
+	cout << spriteMario->getPosition().x;
+	cout << "mario y ";
+	cout << spriteMario->getPosition().y << endl;
+}
+
+void mario::testDown() {
+	spriteMario->setPosition(spriteMario->getPosition().x, spriteMario->getPosition().y + 1);
+	cout << "movimiento abajo";
+	cout << "mario x ";
+	cout << spriteMario->getPosition().x;
+	cout << "mario y ";
+	cout << spriteMario->getPosition().y << endl;
 }

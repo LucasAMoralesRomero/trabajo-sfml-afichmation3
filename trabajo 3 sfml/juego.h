@@ -31,7 +31,9 @@ private:
 
 	//variable de juego (mundo)
 
-	int piso[7]{380, 370, 360, 350, 340, 330, 320}; //array con pisos
+	
+	//array con pisos
+	//int piso[7]{ 395,552,278,215,156,98,37 };
 
 	bool win = false;
 
