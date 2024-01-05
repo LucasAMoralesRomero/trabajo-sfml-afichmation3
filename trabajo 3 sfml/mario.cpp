@@ -1,6 +1,17 @@
 #include "mario.h"
 #include <stdlib.h>
-//395 es el floor
+/*
+INFORMACION DE PISOS:
+piso 0 y =395.5
+piso 1 y =335.5
+piso 2 y =276.5
+piso 3 y =216.5
+piso 4 y =157.5
+piso 5 y =96.5
+piso 6 y =38.5
+
+*/
+
 mario::mario()
 {
 	//sprite y textura de mario
