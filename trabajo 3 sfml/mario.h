@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #include "SFML\Graphics.hpp"
 #include "Afichmation.h"
 #include <iostream>
@@ -14,8 +13,12 @@ public:
 	//para mover a mario
 	void runLeft();//correr a la izquierda
 	void runRight();//correr a la derecha
-	void jump(int floor);//saltar a proximo piso le pasamos el numero de piso
+	void jump(float floor);//saltar a proximo piso le pasamos el numero de piso
 	void stayIdle();//dejamos a mario en idle
+	void setPosition(float x, float y);//seteamos a mario
+	Vector2f getPosition();//obtenemos la posicion de mario
+	bool getStatus();//devuelve si esta o no idle
+	void setIdle(bool status);//seteamos idle
 
 	//variables de desarrollo (test)
 	void testUp();

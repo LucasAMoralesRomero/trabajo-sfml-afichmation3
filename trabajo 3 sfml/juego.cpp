@@ -6,7 +6,7 @@
 juego::juego(int ancho, int alto, std::string titulo)
 {
 	fps = 60; //fps a los que corre el juego
-	TIEMPO_JUEGO = 30;//timer de nivel
+	TIEMPO_JUEGO = 60;//timer de nivel
 	ventana1 = new RenderWindow(VideoMode(ancho, alto), titulo);
 
 	ventana1->setFramerateLimit(fps);
@@ -72,11 +72,24 @@ void juego::gameLoop() {
 			procesarTiempo();
 			checkWin();
 			procesarMusica();
+			procesarGravedad();
 		}
 		if (gameOver) {
 			ventana1->clear();
 			ventana1->draw(Mario->getMario());
 		}
+	}
+}
+
+void juego::procesarGravedad() {//aca procesamos la gravedad para mario
+	// No es necesario cambiar la posición en el eje X para la gravedad
+	jumpVelocity += 0.5f; // Ajuste de gravedad
+
+	// Asegurarse de que el personaje no se hunda en el suelo
+	if (Mario->getPosition().y > floor) {
+		Mario->setPosition(Mario->getPosition().x, (float)floor);
+		enPiso = true;
+		activar_idle = true;
 	}
 }
 
@@ -96,22 +109,59 @@ void juego::procesarEventos() {
 		case Event::KeyPressed:
 			if (Keyboard::isKeyPressed(Keyboard::Left))//movemos a la izquierda con Mario->runLeft()
 			{
+				Mario->setIdle(false);
 				Mario->runLeft();
 			}
 			else if (Keyboard::isKeyPressed(Keyboard::Right))//movemos a la derecha con Mario->runRight()
 			{
+				Mario->setIdle(false);
 				Mario->runRight();
 			}
 			//codigo de prueba para determinar el piso de la actividad  posiciona e imprime en consola posicion
 			else if (Keyboard::isKeyPressed(Keyboard::Up))
 			{
-				Mario->testUp();
+				
+				if (floor == stages[0]) 
+				{
+					Mario->jump(stages[1]);
+					floor = stages[1];
+				}
+				else if (floor == stages[1])
+				{
+					Mario->jump(stages[2]);
+					floor = stages[2];
+				}
+				else if (floor == stages[2])
+				{
+					Mario->jump(stages[3]);
+					floor = stages[3];
+				}
+				else if (floor == stages[3])
+				{
+					Mario->jump(stages[4]);
+					floor = stages[4];
+				}
+				else if (floor == stages[4])
+				{
+					Mario->jump(stages[5]);
+					floor = stages[5];
+				}
+				else if (floor == stages[5])
+				{
+					Mario->jump(stages[6]);
+					floor = stages[6];
+				}
+
 			}
 			else if (Keyboard::isKeyPressed(Keyboard::Down))
 			{
-				Mario->testDown();
+				//Mario->testDown();
 			}
 		default:
+			if (Mario->getStatus() == true)
+			{
+				Mario->stayIdle();
+			}
 			break;
 		}
 	}

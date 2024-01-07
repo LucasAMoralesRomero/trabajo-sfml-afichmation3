@@ -29,7 +29,7 @@ mario::mario()
 	//seteo la escala del sprite con setScale
 	spriteMario->setScale(Vector2f(0.5f, 0.5f));
 	//ubicamos al personaje en piso 0 en el medio
-	spriteMario->move(330.0f,1.0f);
+	spriteMario->move(1.0f,395.5f);
 
 }
 
@@ -44,8 +44,8 @@ Afichmation mario::getMario()
 }
 
 void mario::runLeft() {
-	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento
-	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamnete
+	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento del personaje
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamente
 	{
 		velocidadActual = velocidadMaxima;
 	}
@@ -61,8 +61,8 @@ void mario::runLeft() {
 }
 
 void mario::runRight() {
-	velocidadActual = velocidadActual + aceleracion;
-	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamnete
+	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento del personaje
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamente
 	{
 		velocidadActual = velocidadMaxima;
 	}
@@ -77,14 +77,14 @@ void mario::runRight() {
 	cout << spriteMario->getPosition().y << endl;
 }
 
-void mario::jump(int numeroPiso) {
+void mario::jump(float numeroPiso) {
 	/*se define la implemetacion del salto pero permanecera comentada
 	mientras este en desarrollo el array de pisos*/
-	
+	spriteMario->setPosition(spriteMario->getPosition().x, numeroPiso);
 	cout << "Jump" << endl;
 
-	/*
-	if (spriteMario->getPosition().y == floor) // salto de mario
+	
+	/*if (spriteMario->getPosition().y == floor) // salto de mario
 	{
 		if (en_piso)
 		{
@@ -97,7 +97,50 @@ void mario::jump(int numeroPiso) {
 		}
 	}
 	*/
+	
 }
+
+void mario::stayIdle()
+{
+	spriteMario->Play("idle");
+	velocidadActual = 0;//ajustamos a cero la velocidad de mario
+}
+
+void mario::setPosition(float x, float y)
+{
+	spriteMario->setPosition(x, y);
+}
+
+Vector2f mario::getPosition()
+{
+	Vector2f  posicion = spriteMario->getPosition();
+	return posicion;
+}
+
+bool mario::getStatus()
+{
+	if (activar_idle)
+	{
+		return true;
+	}
+	else if (!activar_idle)
+	{
+		return false;
+	}
+}
+
+void mario::setIdle(bool status)
+{
+	if (status)
+	{
+		activar_idle = true;
+	}
+	else if (!status)
+	{
+		activar_idle = false;
+	}
+}
+
 
 //variables de test para desarrollo de juego
 
