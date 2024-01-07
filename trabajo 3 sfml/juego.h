@@ -2,6 +2,8 @@
 #include "SFML\Graphics.hpp"
 #include <iostream>
 #include "mario.h"
+#include "audioEngine.h"
+#include "Afichmation.h"
 
 using namespace sf;
 using namespace std;
@@ -16,6 +18,8 @@ public:
 	void procesarColisiones();
 	void procesarTiempo();
 	void checkWin();
+	void procesarMusica();//procesamos musica de ambiente
+
 private:
 
 	//variables de ventana
@@ -34,6 +38,9 @@ private:
 	
 	//array con pisos
 	//int piso[7]{ 395,552,278,215,156,98,37 };
+	audioEngine * audio;//desde esta variable accedemos a los sonidos
+
+
 
 	bool win = false;
 
@@ -44,6 +51,7 @@ private:
 	float tiempoFin;
 	int TIEMPO_JUEGO;//en segundos
 	bool gameOver;//bandera de fin de juego (fin de tiempo)
+	bool hurryUp;//bool para reproducir el sonido mas rapido
 
 	//variable de HUD
 

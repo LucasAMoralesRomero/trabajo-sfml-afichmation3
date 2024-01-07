@@ -1,5 +1,6 @@
 #include "juego.h"
 #include "mario.h"
+#include "audioEngine.h"
 #include <stdlib.h>
 
 juego::juego(int ancho, int alto, std::string titulo)
@@ -29,6 +30,10 @@ juego::juego(int ancho, int alto, std::string titulo)
 	tiempoInicio = reloj1->getElapsedTime().asSeconds() + TIEMPO_JUEGO;
 	gameOver = false;
 
+	//generamos el audioEngine
+	audio = new audioEngine();
+
+	hurryUp = false;//asignamos la bandera de hurry up en false, recien inicio el juego
 
 	//ajustes de HUD
 
@@ -66,6 +71,7 @@ void juego::gameLoop() {
 			dibujar();
 			procesarTiempo();
 			checkWin();
+			procesarMusica();
 		}
 		if (gameOver) {
 			ventana1->clear();
@@ -131,4 +137,16 @@ void juego::procesarTiempo() {
 
 void juego::checkWin() {
 
+}
+
+void juego::procesarMusica()
+{
+	if (!audio->backgroundSoundStatus() && !hurryUp)
+	{
+		audio->playBackgroundSound();
+	}
+	else if (!audio->backgroundSoundStatus() && hurryUp)
+	{
+		audio->playBackgroundSoundFaster();
+	}
 }
