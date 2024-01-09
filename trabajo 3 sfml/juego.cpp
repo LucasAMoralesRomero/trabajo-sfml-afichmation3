@@ -17,6 +17,18 @@ juego::juego(int ancho, int alto, std::string titulo)
 	//cargamos el fondo en la textura y la asignamos al sprite
 	background->loadFromFile("recursos/imagenes/fondo_plataformas.png");
 	spriteBackground->setTexture(*background);
+	//sprite y textura de la puerta
+	door = new Texture;
+	spriteDoor = new Sprite;
+	//cargamos la textura de la puerta y la asignamos al sprite
+	door->loadFromFile("recursos/imagenes/puerta.png");
+	spriteDoor->setTexture(*door);
+	// Obtener el tamaño del sprite
+	sf::Vector2u spriteSize = door->getSize();
+	// Establecer el origen en el centro del sprite
+	spriteDoor->setOrigin(spriteSize.x / 2.0f, spriteSize.y / 2.0f);
+	//ubicamos la puerta
+	spriteDoor->setPosition(320, 38.5);
 	//ajustamos al tamaño de ventana y escalamos el fondo
 	spriteBackground->setScale((float)(ventana1->getSize().x) / background->getSize().x, (float)(ventana1->getSize().y) / background->getSize().y);
 
@@ -94,7 +106,15 @@ void juego::procesarGravedad() {//aca procesamos la gravedad para mario
 }
 
 void juego::procesarColisiones() {
+	/*procesar colision con la puerta
+	 Obtén el rectángulo delimitador global de Mario*/
+	sf::FloatRect boundsMario = Mario->getMario().getGlobalBounds();
 
+	// Procesar colisión con la puerta
+	if (spriteDoor->getGlobalBounds().intersects(boundsMario)) {
+		// Hacer algo cuando hay colisión
+		std::cout << "Colisión con la puerta\n";
+	}
 }
 
 void juego::procesarEventos() {
@@ -170,6 +190,7 @@ void juego::procesarEventos() {
 void juego::dibujar() {
 	ventana1->clear();
 	ventana1->draw(*spriteBackground);
+	ventana1->draw(*spriteDoor);
 	ventana1->draw(Mario->getMario());
 	ventana1->draw(*stringTimerText);
 	ventana1->display();

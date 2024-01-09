@@ -28,6 +28,8 @@ private:
 	int fps;
 	Texture * background;
 	Sprite * spriteBackground;
+	Texture *door;
+	Sprite *spriteDoor;
 
 	//variables de mario
 	Event * evento1;
