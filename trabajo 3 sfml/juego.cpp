@@ -86,9 +86,33 @@ void juego::gameLoop() {
 			procesarMusica();
 			procesarGravedad();
 		}
-		if (gameOver) {
-			ventana1->clear();
-			ventana1->draw(Mario->getMario());
+		else if (gameOver) {
+			dibujarGameOver();
+			procesarEventos();
+			//reproducimos el sonido de ganar
+			//primero detenemos la musica ambiente
+			audio->stopBackgroundSound();
+			//ahora reproducimos el sonido de perder
+			audio->playMusicdGameOver();
+			procesarGravedad();
+			sleep(seconds(2.0));//esperamos 2 segundos mientras se reproduce el sonido
+			exit(0);
+		}
+		else if (win)
+		{
+			dibujarWin();
+			procesarEventos();
+			//reproducimos el sonido de ganar
+			//primero detenemos la musica ambiente
+			audio->stopBackgroundSound();
+			//ahora reproducimos el sonido de ganar
+			audio->playMusicWin();
+
+			procesarGravedad();
+			Mario->update();
+			
+			sleep(seconds(3.0));//esperamos 3 segundos mienras se reproduce el sonido
+			exit(1);
 		}
 	}
 }
@@ -113,6 +137,7 @@ void juego::procesarColisiones() {
 	// Procesar colisión con la puerta
 	if (spriteDoor->getGlobalBounds().intersects(boundsMario)) {
 		// Hacer algo cuando hay colisión
+		win = true;
 		std::cout << "Colisión con la puerta\n";
 	}
 }
@@ -196,6 +221,28 @@ void juego::dibujar() {
 	ventana1->display();
 }
 
+void juego::dibujarWin()
+{
+	ventana1->clear();
+	ventana1->draw(*spriteBackground);
+	ventana1->draw(*spriteDoor);
+	ventana1->draw(Mario->getMario());
+	ventana1->draw(*stringTimerText);
+	ventana1->draw(*stringGameWinText);
+	ventana1->display();
+}
+
+void juego::dibujarGameOver()
+{
+	ventana1->clear();
+	ventana1->draw(*spriteBackground);
+	ventana1->draw(*spriteDoor);
+	ventana1->draw(Mario->getMario());
+	ventana1->draw(*stringTimerText);
+	ventana1->draw(*stringGameOverText);
+	ventana1->display();
+}
+
 void juego::procesarTiempo() {
 	tiempoFin = reloj1->getElapsedTime().asSeconds();
 	int seconds = ((int)(tiempoInicio - tiempoFin));
@@ -207,7 +254,7 @@ void juego::procesarTiempo() {
 }
 
 void juego::checkWin() {
-
+	
 }
 
 void juego::procesarMusica()

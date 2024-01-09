@@ -14,6 +14,8 @@ public:
 	juego(int ancho, int alto, string titulo);
 	void gameLoop();
 	void dibujar();
+	void dibujarWin();
+	void dibujarGameOver();
 	void procesarEventos();
 	void procesarColisiones();
 	void procesarTiempo();
