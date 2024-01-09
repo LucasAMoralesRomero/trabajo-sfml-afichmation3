@@ -5,10 +5,10 @@ audioEngine::audioEngine()
 	//cargamos el sonido ambiente
 	worldSound.openFromFile("recursos/audio/gameMusic.ogg");
 	//cargamos todos los sonidos FX en sus buffers
-	errorBuffer.loadFromFile("ohNo.ogg");
-	winBuffer.loadFromFile("gameWin.ogg");
-	gameOverBuffer.loadFromFile("gameOver.ogg");
-	hurryUpBuffer.loadFromFile("hurryUp.ogg");
+	errorBuffer.loadFromFile("recursos/audio/ohNo.ogg");
+	winBuffer.loadFromFile("recursos/audio/gameWin.ogg");
+	gameOverBuffer.loadFromFile("recursos/audio/gameOver.ogg");
+	hurryUpBuffer.loadFromFile("recursos/audio/hurryUp.ogg");
 	//asignamos los buffers
 	errorMusic.setBuffer(errorBuffer);
 	winMusic.setBuffer(winBuffer);
