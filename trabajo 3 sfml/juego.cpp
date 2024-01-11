@@ -1,12 +1,13 @@
 #include "juego.h"
 #include "mario.h"
+#include "koopa.h"
 #include "audioEngine.h"
 #include <stdlib.h>
 
 juego::juego(int ancho, int alto, std::string titulo)
 {
 	fps = 60; //fps a los que corre el juego
-	TIEMPO_JUEGO = 60;//timer de nivel
+	TIEMPO_JUEGO = 30;//timer de nivel
 	ventana1 = new RenderWindow(VideoMode(ancho, alto), titulo);
 
 	ventana1->setFramerateLimit(fps);

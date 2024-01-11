@@ -128,6 +128,7 @@
   <ItemGroup>
     <ClCompile Include="Afichmation.cpp" />
     <ClCompile Include="audioEngine.cpp" />
+    <ClCompile Include="colas.cpp" />
     <ClCompile Include="juego.cpp" />
     <ClCompile Include="koopa.cpp" />
     <ClCompile Include="main.cpp" />
@@ -137,6 +138,7 @@
     <ClInclude Include="Afichmation.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="audioEngine.h" />
+    <ClInclude Include="colas.h" />
     <ClInclude Include="koopa.h" />
     <ClInclude Include="juego.h" />
     <ClInclude Include="main.h" />
