@@ -45,7 +45,7 @@ private:
 
 	//variable de juego (mundo)
 
-	
+	//variable de enemigos
 /*
 INFORMACION DE PISOS:
 piso 0 y =395.5

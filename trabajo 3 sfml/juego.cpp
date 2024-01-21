@@ -1,6 +1,7 @@
 #include "juego.h"
 #include "mario.h"
 #include "koopa.h"
+#include "colas.h"
 #include "audioEngine.h"
 #include <stdlib.h>
 
