@@ -1,19 +1,22 @@
 #include "koopa.h"
+#include <stdlib.h>
 
-koopa::koopa(int color)
+koopa::koopa()
 {
 	//iniciamos el koopa
-	switch (color) {
-	case 1:
+	//generamos un valor random para el shell
+	int num = 0 + rand() % (4 - 1);
+	switch (num) {
+	case 0:
 		textureKoopa.loadFromFile("recursos/imagenes/shell_amarillo.png");
 		break;
-	case 2:
+	case 1:
 		textureKoopa.loadFromFile("recursos/imagenes/shell_azul.png");
 		break;
-	case 3:
+	case 2:
 		textureKoopa.loadFromFile("recursos/imagenes/shell_rojo.png");
 		break;
-	case 4:
+	case 3:
 		textureKoopa.loadFromFile("recursos/imagenes/shell_verde.png");
 		break;
 	default:
