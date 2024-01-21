@@ -34,6 +34,19 @@ juego::juego(int ancho, int alto, std::string titulo)
 	//ajustamos al tamaño de ventana y escalamos el fondo
 	spriteBackground->setScale((float)(ventana1->getSize().x) / background->getSize().x, (float)(ventana1->getSize().y) / background->getSize().y);
 
+	//iniciamos los enemigos del piso 1
+	colas piso1Cola1;
+	colas piso1Cola2;
+	koopa1 = new koopa;
+	koopa2 = new koopa;
+	koopa3 = new koopa;
+	koopa4 = new koopa;
+	piso1Cola1.InsertarNodo(*koopa1);
+	piso1Cola1.InsertarNodo(*koopa2);
+	piso1Cola1.InsertarNodo(*koopa3);
+	piso1Cola1.InsertarNodo(*koopa4);
+
+
 	//iniciamos a mario
 	Mario = new mario;
 	

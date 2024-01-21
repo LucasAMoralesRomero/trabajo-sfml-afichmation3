@@ -4,6 +4,7 @@
 #include "mario.h"
 #include "audioEngine.h"
 #include "Afichmation.h"
+#include "colas.h"
 
 using namespace sf;
 using namespace std;
@@ -46,6 +47,15 @@ private:
 	//variable de juego (mundo)
 
 	//variable de enemigos
+	//colas de piso 1
+	colas piso1Cola1;
+	colas piso1Cola2;
+	//koopa en piso 1
+	koopa* koopa1;
+	koopa* koopa2;
+	koopa* koopa3;
+	koopa* koopa4;
+
 /*
 INFORMACION DE PISOS:
 piso 0 y =395.5
