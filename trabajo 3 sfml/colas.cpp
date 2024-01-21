@@ -1,33 +1,17 @@
 #include "colas.h"
-using namespace std;
-struct Nodo {
-	koopa koopaTroopa;
-	Nodo* siguienteNodo;
-};
 
-colas::colas(int cantidadKoopas)
+colas::colas() : primero(nullptr), ultimo(nullptr)
 {
-	//iniciamos la cola vacia
-	Nodo *primero = NULL;
-	Nodo *ultimo = NULL;
-	//generamos un array de koopas
-	for (int h = 0; h < 4; h++)
-	{
-		arrayKoopas[h] = new koopa(h);
-	}
-	for (int i = 0; i < cantidadKoopas; i++)
-	{
-		InsertarNodo(primero, ultimo, arrayKoopas*[i]);
-	}
-
+	//iniciamos la cola vacía, ya que las variables miembro primero y ultimo están en la clase colas
 }
 
-void colas::InsertarNodo(Nodo *& primero, Nodo *& ultimo, koopa koopaTroopa)
+void colas::InsertarNodo(koopa koopaTroopa)
 {
 	Nodo *nuevoKoopa = new Nodo();
-	nuevoKoopa->koopaTroopa =  koopaTroopa;
-	nuevoKoopa->siguienteNodo = NULL;
-	if (primero == NULL)
+	nuevoKoopa->koopaTroopa = koopaTroopa;
+	nuevoKoopa->siguienteNodo = nullptr;
+
+	if (primero == nullptr)
 	{
 		primero = nuevoKoopa;
 	}
@@ -35,17 +19,18 @@ void colas::InsertarNodo(Nodo *& primero, Nodo *& ultimo, koopa koopaTroopa)
 	{
 		ultimo->siguienteNodo = nuevoKoopa;
 	}
+
 	ultimo = nuevoKoopa;
 }
 
-void colas::QuitarNodo(Nodo *& primero, Nodo *& ultimo, koopa koopaTroopa)
+void colas::QuitarNodo(koopa koopaTroopa)
 {
 	koopaObtenido = primero->koopaTroopa;
 	Nodo *Aux = primero;
 	if (primero == ultimo)
 	{
-		primero = NULL;
-		ultimo = NULL;
+		primero = nullptr;
+		ultimo = nullptr;
 	}
 	else
 	{

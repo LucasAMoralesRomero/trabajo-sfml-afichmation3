@@ -5,17 +5,23 @@
 
 using namespace sf;
 
-class colas
-{
+class colas {
 public:
-	colas(int cantidadKoopas);//le paso cuanto koopas quiero en la cola
-	void InsertarNodo(Nodo *&primero, Nodo *&ultimo, koopa koopaTroopa);
-	void QuitarNodo(Nodo *&primero, Nodo *&ultimo, koopa koopaTroopa);
+	colas();
+	void InsertarNodo(koopa koopaTroopa);
+	void QuitarNodo(koopa koopaTroopa);
 
 private:
-	struct Nodo;
-	koopa koopaTroopa;
-	Nodo *siguienteNodo;
-	koopa koopaObtenido;//aca guardamos el koopa que sale de la lista
-	koopa * arrayKoopas[4];
+	class Nodo {
+	public:
+		koopa koopaTroopa;
+		Nodo* siguienteNodo;
+
+		// Constructor con valor predeterminado para koopaTroopa
+		Nodo(koopa koopa = koopa()) : koopaTroopa(koopa), siguienteNodo(nullptr) {}
+	};
+
+	Nodo* primero;
+	Nodo* ultimo;
+	koopa koopaObtenido;
 };
