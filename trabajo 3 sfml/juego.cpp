@@ -41,6 +41,12 @@ juego::juego(int ancho, int alto, std::string titulo)
 	koopa2 = new koopa;
 	koopa3 = new koopa;
 	koopa4 = new koopa;
+	//seteamos los koopa en el piso 1
+	koopa4->setPosition(600, stages[1]);
+	koopa3->setPosition(570, stages[1]);
+	koopa2->setPosition(540, stages[1]);
+	koopa1->setPosition(510, stages[1]);
+	//agregamos los enemisgos a la cola 1
 	piso1Cola1.InsertarNodo(*koopa1);
 	piso1Cola1.InsertarNodo(*koopa2);
 	piso1Cola1.InsertarNodo(*koopa3);
@@ -232,6 +238,10 @@ void juego::dibujar() {
 	ventana1->draw(*spriteBackground);
 	ventana1->draw(*spriteDoor);
 	ventana1->draw(Mario->getMario());
+	ventana1->draw(koopa1->getSprite());
+	ventana1->draw(koopa2->getSprite());
+	ventana1->draw(koopa3->getSprite());
+	ventana1->draw(koopa4->getSprite());
 	ventana1->draw(*stringTimerText);
 	ventana1->display();
 }
