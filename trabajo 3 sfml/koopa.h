@@ -11,8 +11,13 @@ public:
 	Sprite getSprite();
 	FloatRect getPosition();
 	void setPosition(float x, float y);
+	void runLeft();
+	void runRight();
 private:
 	Texture* textureKoopa;
 	Sprite* spriteKoopa;
 	int num;//aqui generamos el random del shell
+	float aceleracion = 0.1f;
+	float velocidadMaxima = 6.0f;
+	float velocidadActual = 0.0f;
 };

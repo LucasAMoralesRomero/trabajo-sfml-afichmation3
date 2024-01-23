@@ -45,3 +45,25 @@ void koopa::setPosition(float x, float y)
 {
 	spriteKoopa->setPosition(x, y);
 }
+
+void koopa::runLeft()
+{
+	//movimiento basado en movimiento de mario.cpp
+	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento del personaje
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamente
+	{
+		velocidadActual = velocidadMaxima;
+	}
+	spriteKoopa->setPosition(spriteKoopa->getPosition().x - velocidadActual, spriteKoopa->getPosition().y);
+}
+
+void koopa::runRight()
+{
+	//movimiento basado en movimiento de mario.cpp
+	velocidadActual = velocidadActual + aceleracion;//aceleramos el movimiento del personaje
+	if (velocidadActual > velocidadMaxima)//si la aceleracion es mayor a la maxima, la seteamos nuevamente
+	{
+		velocidadActual = velocidadMaxima;
+	}
+	spriteKoopa->setPosition(spriteKoopa->getPosition().x + velocidadActual, spriteKoopa->getPosition().y);
+}
