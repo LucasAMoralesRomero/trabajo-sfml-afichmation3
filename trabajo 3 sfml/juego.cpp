@@ -51,7 +51,9 @@ juego::juego(int ancho, int alto, std::string titulo)
 	piso1Cola1.InsertarNodo(*koopa2);
 	piso1Cola1.InsertarNodo(*koopa3);
 	piso1Cola1.InsertarNodo(*koopa4);
-
+	//probamos a casr un nodo
+	piso1Cola1.QuitarNodo();
+	koopa1->runRight();
 
 	//iniciamos a mario
 	Mario = new mario;
@@ -231,6 +233,8 @@ void juego::procesarEventos() {
 			break;
 		}
 	}
+
+
 }
 
 void juego::dibujar() {
