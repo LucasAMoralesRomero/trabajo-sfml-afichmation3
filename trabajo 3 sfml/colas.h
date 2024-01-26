@@ -9,8 +9,8 @@ class colas {
 public:
 	colas();
 	void InsertarNodo(koopa koopaTroopa);
-	void QuitarNodo(koopa koopaTroopa);
-
+	void QuitarNodo();
+	
 private:
 	class Nodo {
 	public:
