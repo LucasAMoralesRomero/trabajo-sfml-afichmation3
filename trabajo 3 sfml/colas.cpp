@@ -36,5 +36,6 @@ void colas::QuitarNodo()
 	{
 		primero = primero->siguienteNodo;
 	}
+	InsertarNodo(koopaObtenido);
 	delete Aux;
 }
