@@ -36,7 +36,6 @@ juego::juego(int ancho, int alto, std::string titulo)
 
 	//iniciamos los enemigos del piso 1
 	colas piso1Cola1;
-	colas piso1Cola2;
 	koopa1 = new koopa;
 	koopa2 = new koopa;
 	koopa3 = new koopa;
@@ -46,12 +45,12 @@ juego::juego(int ancho, int alto, std::string titulo)
 	koopa3->setPosition(570, stages[1]);
 	koopa2->setPosition(540, stages[1]);
 	koopa1->setPosition(510, stages[1]);
-	//agregamos los enemisgos a la cola 1
+	//agregamos los enemigos a la cola 1
 	piso1Cola1.InsertarNodo(*koopa1);
 	piso1Cola1.InsertarNodo(*koopa2);
 	piso1Cola1.InsertarNodo(*koopa3);
 	piso1Cola1.InsertarNodo(*koopa4);
-	//probamos a casr un nodo
+	//probamos a sacar un nodo
 	piso1Cola1.QuitarNodo();
 	koopa1->runRight();
 
