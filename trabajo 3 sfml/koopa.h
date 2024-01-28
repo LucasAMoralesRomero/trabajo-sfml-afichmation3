@@ -9,7 +9,7 @@ class koopa
 public:
 	koopa();//el color sera generado al azar
 	Sprite getSprite();
-	FloatRect getPosition();
+	Vector2f getPosition();
 	void setPosition(float x, float y);
 	void runLeft();
 	void runRight();

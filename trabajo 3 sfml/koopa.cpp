@@ -35,10 +35,10 @@ Sprite koopa::getSprite()
 	return *spriteKoopa;
 }
 
-FloatRect koopa::getPosition()
+Vector2f koopa::getPosition()
 {
-	FloatRect posicion = spriteKoopa->getGlobalBounds();
-	return posicion;
+		Vector2f  posicion = spriteKoopa->getPosition();
+		return posicion;
 }
 
 void koopa::setPosition(float x, float y)
