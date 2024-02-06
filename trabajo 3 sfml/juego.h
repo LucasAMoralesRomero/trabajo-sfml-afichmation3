@@ -57,6 +57,8 @@ private:
 	koopa* koopa2;
 	koopa* koopa3;
 	koopa* koopa4;
+	//koopa que vamos a manpular moviendololo por el escenario
+	koopa* koopaEnPiso1;
 
 /*
 INFORMACION DE PISOS:

@@ -25,8 +25,16 @@ void colas::InsertarNodo(koopa koopaTroopa)
 
 koopa colas::QuitarNodo()
 {
-	koopaObtenido = primero->koopaTroopa;
+	if (primero == nullptr) {
+		// Manejo del caso cuando la cola está vacía
+		// Por ejemplo, podrías lanzar una excepción o devolver un valor predeterminado.
+		// Aquí se devuelve un koopa por defecto
+		return koopa();
+	}
+
 	Nodo *Aux = primero;
+	koopaObtenido = primero->koopaTroopa;
+
 	if (primero == ultimo)
 	{
 		primero = nullptr;
@@ -36,6 +44,7 @@ koopa colas::QuitarNodo()
 	{
 		primero = primero->siguienteNodo;
 	}
-	return koopaObtenido;
+
 	delete Aux;
+	return koopaObtenido;
 }

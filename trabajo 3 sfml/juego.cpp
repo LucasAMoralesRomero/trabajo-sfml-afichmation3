@@ -40,18 +40,20 @@ juego::juego(int ancho, int alto, std::string titulo)
 	koopa2 = new koopa;
 	koopa3 = new koopa;
 	koopa4 = new koopa;
+	koopaEnPiso1 = new koopa;
 	//seteamos los koopa en el piso 1
 	koopa4->setPosition(600, stages[1]);
 	koopa3->setPosition(570, stages[1]);
 	koopa2->setPosition(540, stages[1]);
 	koopa1->setPosition(510, stages[1]);
+	koopaEnPiso1->setPosition(600, stages[1]);
 	//agregamos los enemigos a la cola 1
 	piso1Cola1.InsertarNodo(*koopa1);
 	piso1Cola1.InsertarNodo(*koopa2);
 	piso1Cola1.InsertarNodo(*koopa3);
 	piso1Cola1.InsertarNodo(*koopa4);
 	//seteamos las banderas del piso 1
-	piso1Pop = true;//ponemnos en true para inicar el ciclo
+	piso1Pop = true;//ponemos en true para inicar el ciclo
 	piso1Desaparecio = false;//ponemos en false, le koopa recien salio
 
 	/*
@@ -252,7 +254,20 @@ void juego::dibujar() {
 	//ventana1->draw(koopa2->getSprite());
 	//ventana1->draw(koopa3->getSprite());
 	//ventana1->draw(koopa4->getSprite());
-	
+	if (piso1Pop)
+	{
+		koopaEnPiso1 = &piso1Cola1.QuitarNodo();
+		koopaEnPiso1->setPosition(600, stages[1]);
+		koopaEnPiso1->runLeft(); // Llama a la función runLeft() del objeto koopaEnPiso1
+		ventana1->draw(koopaEnPiso1->getSprite()); // Dibuja el sprite del objeto koopaEnPiso1 en la ventana
+		piso1Pop = false;
+	}
+	if (koopaEnPiso1->getPosition().y < 0.0)
+	{
+		koopaEnPiso1->setPosition(600, stages[1]);
+		piso1Cola1.InsertarNodo(*koopaEnPiso1);
+		piso1Pop = true;
+	}
 }
 
 void juego::dibujarWin()
