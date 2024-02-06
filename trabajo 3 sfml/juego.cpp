@@ -50,9 +50,16 @@ juego::juego(int ancho, int alto, std::string titulo)
 	piso1Cola1.InsertarNodo(*koopa2);
 	piso1Cola1.InsertarNodo(*koopa3);
 	piso1Cola1.InsertarNodo(*koopa4);
-	//probamos a sacar un nodo
+	//seteamos las banderas del piso 1
+	piso1Pop = true;//ponemnos en true para inicar el ciclo
+	piso1Desaparecio = false;//ponemos en false, le koopa recien salio
+
+	/*
+	TEST
+	probamos a sacar un nodo
 	piso1Cola1.QuitarNodo();
 	koopa1->runRight();
+	*/
 
 	//iniciamos a mario
 	Mario = new mario;
@@ -241,12 +248,11 @@ void juego::dibujar() {
 	ventana1->draw(*spriteBackground);
 	ventana1->draw(*spriteDoor);
 	ventana1->draw(Mario->getMario());
-	ventana1->draw(koopa1->getSprite());
-	ventana1->draw(koopa2->getSprite());
-	ventana1->draw(koopa3->getSprite());
-	ventana1->draw(koopa4->getSprite());
-	ventana1->draw(*stringTimerText);
-	ventana1->display();
+	//ventana1->draw(koopa1->getSprite());
+	//ventana1->draw(koopa2->getSprite());
+	//ventana1->draw(koopa3->getSprite());
+	//ventana1->draw(koopa4->getSprite());
+	
 }
 
 void juego::dibujarWin()
