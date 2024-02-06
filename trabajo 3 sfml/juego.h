@@ -49,7 +49,9 @@ private:
 	//variable de enemigos
 	//colas de piso 1
 	colas piso1Cola1;
-	colas piso1Cola2;
+	//banderas para cola en piso1
+	bool piso1Pop = false;//bandera para sacar 1 koopa
+	bool piso1Desaparecio = false;//bandera para indicar que el koopa desaprecio del escenario
 	//koopa en piso 1
 	koopa* koopa1;
 	koopa* koopa2;
