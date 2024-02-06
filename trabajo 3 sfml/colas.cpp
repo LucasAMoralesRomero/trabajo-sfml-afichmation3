@@ -23,7 +23,7 @@ void colas::InsertarNodo(koopa koopaTroopa)
 	ultimo = nuevoKoopa;
 }
 
-void colas::QuitarNodo()
+koopa colas::QuitarNodo()
 {
 	koopaObtenido = primero->koopaTroopa;
 	Nodo *Aux = primero;
@@ -36,8 +36,6 @@ void colas::QuitarNodo()
 	{
 		primero = primero->siguienteNodo;
 	}
-	koopaObtenido.runRight();
-	if(koopaObtenido.getPosition)
-	InsertarNodo(koopaObtenido);
+	return koopaObtenido;
 	delete Aux;
 }

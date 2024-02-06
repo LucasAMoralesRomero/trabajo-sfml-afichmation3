@@ -9,9 +9,10 @@ class colas {
 public:
 	colas();
 	void InsertarNodo(koopa koopaTroopa);
-	void QuitarNodo();
+	koopa QuitarNodo();//devolvemos un koopa para manipularlo en la clase juego
 	
 private:
+	
 	class Nodo {
 	public:
 		koopa koopaTroopa;
@@ -20,7 +21,7 @@ private:
 		// Constructor con valor predeterminado para koopaTroopa
 		Nodo(koopa koopa = koopa()) : koopaTroopa(koopa), siguienteNodo(nullptr) {}
 	};
-
+    friend class juego;//permite que juego acceda a las variables privadas de la clase
 	Nodo* primero;
 	Nodo* ultimo;
 	koopa koopaObtenido;
