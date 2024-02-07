@@ -268,6 +268,7 @@ void juego::dibujar() {
 		piso1Cola1.InsertarNodo(*koopaEnPiso1);
 		piso1Pop = true;
 	}
+	ventana1->display();
 }
 
 void juego::dibujarWin()
